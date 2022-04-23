@@ -34,7 +34,7 @@ class TimitDataset(Dataset):
         # List all wave files
         file_list = []
         for s in split:
-            split_list = list(Path(join(path, s)).rglob("*.flac"))
+            split_list = list(Path(join(path, s)).rglob("*.wav"))
             assert len(split_list) > 0, "No data found @ {}".format(join(path,s))
             file_list += split_list
         # Read text
@@ -77,7 +77,7 @@ class TimitTextDataset(Dataset):
                 self.encode_on_fly = True
                 with open(join(path, s), 'r') as f:
                     all_sent += f.readlines()
-            file_list += list(Path(join(path, s)).rglob("*.flac"))
+            file_list += list(Path(join(path, s)).rglob("*.wav"))
         assert (len(file_list) > 0) or (len(all_sent)
                                         > 0), "No data found @ {}".format(path)
 

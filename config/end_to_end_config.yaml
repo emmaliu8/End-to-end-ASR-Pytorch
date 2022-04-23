@@ -1,7 +1,7 @@
 data:
   corpus:                                 
     name: 'TIMIT'                   # Specify corpus
-    path: 'data/TIMIT'          # Path to raw LibriSpeech dataset
+    path: 'data/TIMIT/audio'          # Path to raw LibriSpeech dataset
     train_split: ['train'] # Name of data splits to be used as training set
     dev_split: ['dev']              # Name of data splits to be used as validation set
     bucketing: True                       # Enable/Disable bucketing 
