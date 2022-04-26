@@ -31,6 +31,7 @@ def read_text_for_split(file_path):
         lines = content.split('\n')
         lines = lines[0].split('\n')
         for line in lines:
+            print(line)
             space_index = line.strip().index(' ')
             id_to_text[line[:space_index]] = line[space_index+1:]
     return id_to_text
