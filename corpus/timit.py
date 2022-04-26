@@ -25,7 +25,6 @@ def read_text(file):
                 return line[:-1].split(' ', 1)[1]
 
 def read_text_for_split(file_path):
-    print(file_path)
     id_to_text = {}
     with open(file_path, 'r') as f:
         content = f.read()
@@ -51,10 +50,8 @@ class TimitDataset(Dataset):
         # text = Parallel(n_jobs=READ_FILE_THREADS)(
         #    delayed(read_text)(str(f)) for f in file_list)
         #text = Parallel(n_jobs=-1)(delayed(tokenizer.encode)(txt) for txt in text)
-        print(file_list[0])
-        print(file_list[0].stem)
         all_text = read_text_for_split(path[:11] + split[0] + '/text')
-        text = [all_text[str(id.stem)[-15:-4]] for id in file_list]
+        text = [all_text[str(id.stem)] for id in file_list]
         text = [tokenizer.encode(txt) for txt in text]
 
         # Sort dataset by text length
