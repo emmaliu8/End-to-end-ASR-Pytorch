@@ -30,6 +30,8 @@ def read_text_for_split(file_path):
         content = f.read()
         print(content)
         lines = content.split('\n')
+        print('new')
+        print(lines[0])
         for line in lines:
             print(line)
             space_index = line.strip().index(' ')
