@@ -28,8 +28,11 @@ def read_text_for_split(file_path):
     id_to_text = {}
     with open(file_path, 'r') as f:
         content = f.read()
+        print(content)
         lines = content.split('\n')
+        print(lines)
         lines = lines[0].split('\n')
+        print(lines)
         for line in lines:
             print(line)
             space_index = line.strip().index(' ')
