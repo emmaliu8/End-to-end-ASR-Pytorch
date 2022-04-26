@@ -25,11 +25,13 @@ def read_text(file):
                 return line[:-1].split(' ', 1)[1]
 
 def read_text_for_split(file_path):
+    print(file_path)
     id_to_text = {}
     with open(file_path, 'r') as f:
         content = f.read()
         lines = content.split('\n')
         for line in lines:
+            print(line)
             space_index = line.strip().index(' ')
             id_to_text[line[:space_index]] = line[space_index+1:]
     return id_to_text
