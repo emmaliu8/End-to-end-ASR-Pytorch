@@ -52,7 +52,7 @@ class TimitDataset(Dataset):
         #    delayed(read_text)(str(f)) for f in file_list)
         #text = Parallel(n_jobs=-1)(delayed(tokenizer.encode)(txt) for txt in text)
         all_text = read_text_for_split(path[:11] + split[0] + '/text')
-        text = [all_text[str(id[-15:-4].stem)] for id in file_list]
+        text = [all_text[str(id.stem)[-15:-4]] for id in file_list]
         text = [tokenizer.encode(txt) for txt in text]
 
         # Sort dataset by text length
