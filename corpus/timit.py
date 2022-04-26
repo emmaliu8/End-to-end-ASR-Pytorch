@@ -39,8 +39,6 @@ class TimitDataset(Dataset):
         # Setup
         self.path = path
         self.bucket_size = bucket_size
-        print(path)
-        print(split)
         # List all wave files
         file_list = []
         for s in split:
@@ -48,10 +46,11 @@ class TimitDataset(Dataset):
             assert len(split_list) > 0, "No data found @ {}".format(join(path,s))
             file_list += split_list
         # Read text
-        text = Parallel(n_jobs=READ_FILE_THREADS)(
-            delayed(read_text)(str(f)) for f in file_list)
+        # text = Parallel(n_jobs=READ_FILE_THREADS)(
+        #    delayed(read_text)(str(f)) for f in file_list)
         #text = Parallel(n_jobs=-1)(delayed(tokenizer.encode)(txt) for txt in text)
-        all_text = read_text_for_split('split/text')
+        all_text = read_text_for_split(path[:11] + split[0] + '/text')
+        text = [all_text[id] for id in file_list]
         text = [tokenizer.encode(txt) for txt in text]
 
         # Sort dataset by text length
