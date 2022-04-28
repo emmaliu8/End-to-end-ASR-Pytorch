@@ -5,7 +5,7 @@ data:
     train_split: ['train'] # Name of data splits to be used as training set
     dev_split: ['dev']              # Name of data splits to be used as validation set
     bucketing: True                       # Enable/Disable bucketing 
-    batch_size: 16
+    batch_size: 32
   audio:                                  # Attributes of audio feature
     feat_type: 'mfcc'
     feat_dim:  13
@@ -25,7 +25,7 @@ hparas:                                   # Experiment hyper-parameters
   tf_start: 1.0
   tf_end: 1.0
   tf_step: 500000
-  optimizer: 'Adadelta'
+  optimizer: 'Adam'
   lr: 1.0
   eps: 0.00000001                         # 1e-8
   lr_scheduler: 'fixed'                   # 'fixed'/'warmup'
