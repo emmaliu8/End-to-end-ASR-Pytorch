@@ -100,6 +100,9 @@ class ExtractAudioFeature(nn.Module):
 
     def forward(self, filepath):
         waveform, sample_rate = torchaudio.load(filepath)
+        transform = torchaudio.transforms.Resample(sample_rate, 16000)
+        waveform = transform(waveform)
+        sample_rate = 16000
 
         y = self.extract_fn(waveform,
                             num_mel_bins=self.num_mel_bins,
