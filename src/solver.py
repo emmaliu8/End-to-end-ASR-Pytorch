@@ -173,7 +173,7 @@ class BaseSolver():
         if self.emb_decoder is not None:
             full_dict['emb_decoder'] = self.emb_decoder.state_dict()
 
-        torch.jit.save(full_dict, ckpt_path)
+        torch.save(full_dict, ckpt_path)
         if show_msg:
             self.verbose("Saved checkpoint (step = {}, {} = {:.2f}) and status @ {}".
                          format(human_format(self.step), metric, score, ckpt_path))
