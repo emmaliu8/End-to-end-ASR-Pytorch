@@ -1,7 +1,7 @@
 # Most of the parameters will be imported from the training config
 src:
   ckpt: 'ckpt/best_att.pth'
-  config: 'config/end_to_end_config.yaml'
+  config: 'ckpt/end_to_end_config_sd0/best_att.pth'
 data:
   corpus:
     name: 'TIMIT'
