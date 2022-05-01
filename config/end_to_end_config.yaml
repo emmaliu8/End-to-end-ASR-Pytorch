@@ -20,8 +20,8 @@ data:
     vocab_file: 'tests/sample_data/character.vocab'
 
 hparas:                                   # Experiment hyper-parameters
-  valid_step: 5000
-  max_step: 10001
+  valid_step: 10
+  max_step: 101
   tf_start: 1.0
   tf_end: 1.0
   tf_step: 500000
