@@ -64,7 +64,7 @@ class BaseSolver():
             # Output path
             os.makedirs(paras.outdir, exist_ok=True)
             self.ckpdir = os.path.join(paras.outdir, self.exp_name)
-
+            print(config)
             # Load training config to get acoustic feat, text encoder and build model
             self.src_config = yaml.load(
                 open(config['src']['config'], 'r'), Loader=yaml.FullLoader)
