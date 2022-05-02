@@ -79,7 +79,7 @@ class LibriTextDataset(Dataset):
                     all_sent += f.readlines()
             print(Path(join(path, s)))
             print(list(Path(join(path, s)).rglob("*.flac")))
-            print(list(Path(join(path, s)).rglob(".")))
+            print(list(Path(join(path, s)).rglob("*")))
             file_list += list(Path(join(path, s)).rglob("*.flac"))
         assert (len(file_list) > 0) or (len(all_sent)
                                         > 0), "No data found @ {}".format(path)
