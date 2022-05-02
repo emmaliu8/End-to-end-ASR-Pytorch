@@ -3,6 +3,7 @@ from pathlib import Path
 from os.path import join, getsize
 from joblib import Parallel, delayed
 from torch.utils.data import Dataset
+import os 
 
 # Additional (official) text src provided
 OFFICIAL_TXT_SRC = ['librispeech-lm-norm.txt']
@@ -77,9 +78,7 @@ class LibriTextDataset(Dataset):
                 self.encode_on_fly = True
                 with open(join(path, s), 'r') as f:
                     all_sent += f.readlines()
-            print(Path(join(path, s)))
-            print(list(Path(join(path, s)).rglob("*.flac")))
-            print(list(Path(join(path, s)).rglob("*")))
+            print(f for f in os.listdir(Path(join(path, s))))
             file_list += list(Path(join(path, s)).rglob("*.flac"))
         assert (len(file_list) > 0) or (len(all_sent)
                                         > 0), "No data found @ {}".format(path)
