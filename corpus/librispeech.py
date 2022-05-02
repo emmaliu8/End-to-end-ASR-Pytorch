@@ -77,6 +77,8 @@ class LibriTextDataset(Dataset):
                 self.encode_on_fly = True
                 with open(join(path, s), 'r') as f:
                     all_sent += f.readlines()
+            print(list(Path(join(path, s)).rglob("*.flac")))
+            print(list(Path(join(path, s)).rglob(".")))
             file_list += list(Path(join(path, s)).rglob("*.flac"))
         assert (len(file_list) > 0) or (len(all_sent)
                                         > 0), "No data found @ {}".format(path)

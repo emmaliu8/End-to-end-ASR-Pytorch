@@ -120,8 +120,6 @@ def create_textset(tokenizer, train_split, dev_split, name, path, bucketing, bat
     bucket_size = batch_size if bucketing else 1
     tr_loader_bs = 1 if bucketing else batch_size
     # Do not use bucketing for dev set
-    print(path)
-    print(dev_split)
     dv_set = Dataset(path, dev_split, tokenizer, 1)
     tr_set = Dataset(path, train_split, tokenizer, bucket_size)
 
