@@ -6,12 +6,12 @@ data:
   corpus:
     name: 'TIMIT'
     dev_split: ['dev']
-    test_split: ['test']
+    test_split: ['our_test']
 decode:
   beam_size: 20
   min_len_ratio: 0.01
   max_len_ratio: 0.07
   lm_path: 'ckpt/train_lm_sd0/best_ppx.pth'
-  lm_config: 'config/libri/lm_example.yaml'
+  lm_config: 'config/train_lm.yaml'
   lm_weight: 0.5
   ctc_weight: 0.0
