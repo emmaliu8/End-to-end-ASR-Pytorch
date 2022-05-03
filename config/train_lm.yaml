@@ -12,8 +12,8 @@ data:
     vocab_file: 'tests/sample_data/subword-16k.model'
 
 hparas:                                   # Experiment hyper-parameters
-  valid_step: 10000
-  max_step: 100000000
+  valid_step: 10
+  max_step: 100
   optimizer: 'Adam'
   lr: 0.0001
   eps: 0.00000001
