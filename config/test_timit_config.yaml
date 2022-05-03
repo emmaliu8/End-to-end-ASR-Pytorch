@@ -1,0 +1,17 @@
+# Most of the parameters will be imported from the training config
+src:
+  ckpt: 'ckpt/end_to_end_config_sd0/best_att.pth'
+  config: 'config/end_to_end_config.yaml'
+data:
+  corpus:
+    name: 'TIMIT'
+    dev_split: ['dev']
+    test_split: ['test']
+decode:
+  beam_size: 20
+  min_len_ratio: 0.01
+  max_len_ratio: 0.07
+  lm_path: 'ckpt/train_lm_sd0/best_ppx.pth'
+  lm_config: 'config/train_lm.yaml'
+  lm_weight: 0.5
+  ctc_weight: 0.0
